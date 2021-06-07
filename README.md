@@ -1,2 +1,4 @@
 # gra_arkadowa
-gra 
+opis gry
+zasady
+
