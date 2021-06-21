@@ -24,15 +24,15 @@ enemyX = []
 enemyY = []
 enemyX_change = []
 enemyY_change = []
-num_of_enemies = 5
+num_of_enemies = 13
 
 
 for i in range(num_of_enemies):
     enemyImg.append(pygame.image.load('wilk.png'))
     enemyX.append(random.randint(1400,1550))
     enemyY.append(random.randint(0,1000))
-    enemyX_change.append(-120)
-    enemyY_change.append(5)
+    enemyX_change.append(-140)
+    enemyY_change.append(7)
 
 def enemy(x, y, i):
     screen.blit(enemyImg[i], (x, y))
@@ -102,7 +102,7 @@ def isCollision(enemyX,enemyY,bullets):
             # wypisz pozycje poki na ekranie, ToDo - sprawdzaj tutaj kolizje
             #print(math.sqrt((math.pow(enemyX-bullet.getX(),2)) + (math.pow(enemyY-bullet.getY(),2))), "pozycja x,y kuli nr", bullet.getBulletNumber(), bullet.getX(), bullet.getY())
             distance = math.sqrt((math.pow(enemyX-bullet.getX(),2)) + (math.pow(enemyY-bullet.getY(),2)))
-            if distance < 75:
+            if distance < 65:
                 return True
             else:
                 return False
@@ -130,8 +130,6 @@ screen_width, screen_height = 1600,1000
 screen = pygame.display.set_mode((screen_width,screen_height))
 background = pygame.image.load('jungle.jpg')
 pygame.mouse.set_visible(False)
-mixer.music.load('background_music.wav')
-mixer.music.play(-1)
 
 player = Player()
 player_group = pygame.sprite.Group()
@@ -157,23 +155,23 @@ while running :
 
     for i in range(num_of_enemies):
         enemyY[i] += enemyY_change[i]
-        if enemyY[i] <= 0 and score_value <= 15:
-            enemyY_change[i] = 4
+        if enemyY[i] <= 0 and score_value <= 10:
+            enemyY_change[i] = 6
             enemyX[i] += enemyX_change[i]
-        elif enemyY[i] >= 950 and score_value <= 15:
-            enemyY_change[i] = -4
+        elif enemyY[i] >= 950 and score_value <= 10:
+            enemyY_change[i] = -6
             enemyX[i] += enemyX_change[i]
-        elif enemyY[i] <= 0 and score_value > 15 <= 25 :
-            enemyY_change[i] = 7
+        elif enemyY[i] <= 0 and score_value > 10 <= 25 :
+            enemyY_change[i] = 9
             enemyX[i] += enemyX_change[i]
-        elif enemyY[i] >= 950 and score_value > 15 <= 25:
-            enemyY_change[i] = -7
+        elif enemyY[i] >= 950 and score_value > 10 <= 25:
+            enemyY_change[i] = -9
             enemyX[i] += enemyX_change[i]
         elif enemyY[i] <= 0 and score_value > 25 :
-            enemyY_change[i] = 11
+            enemyY_change[i] = 13
             enemyX[i] += enemyX_change[i]
         elif enemyY[i] >= 950 and score_value > 25 :
-            enemyY_change[i] = -11
+            enemyY_change[i] = -13
             enemyX[i] += enemyX_change[i]
 
         collision = isCollision(enemyX[i],enemyY[i],bullet_group)
@@ -196,8 +194,3 @@ while running :
     show_score(textX,textY)
     pygame.display.flip()
     clock.tick(120)
-
-
-
-
-

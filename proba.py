@@ -24,7 +24,7 @@ enemyX = []
 enemyY = []
 enemyX_change = []
 enemyY_change = []
-num_of_enemies = 5
+num_of_enemies = 10
 
 
 for i in range(num_of_enemies):
@@ -157,23 +157,23 @@ while running :
 
     for i in range(num_of_enemies):
         enemyY[i] += enemyY_change[i]
-        if enemyY[i] <= 0 and score_value <= 15:
-            enemyY_change[i] = 4
+        if enemyY[i] <= 0 and score_value <= 10:
+            enemyY_change[i] = 6
             enemyX[i] += enemyX_change[i]
-        elif enemyY[i] >= 950 and score_value <= 15:
-            enemyY_change[i] = -4
+        elif enemyY[i] >= 950 and score_value <= 10:
+            enemyY_change[i] = -6
             enemyX[i] += enemyX_change[i]
-        elif enemyY[i] <= 0 and score_value > 15 <= 25 :
-            enemyY_change[i] = 7
+        elif enemyY[i] <= 0 and score_value > 10 <= 20 :
+            enemyY_change[i] = 9
             enemyX[i] += enemyX_change[i]
-        elif enemyY[i] >= 950 and score_value > 15 <= 25:
-            enemyY_change[i] = -7
+        elif enemyY[i] >= 950 and score_value > 10 <= 20:
+            enemyY_change[i] = -9
             enemyX[i] += enemyX_change[i]
-        elif enemyY[i] <= 0 and score_value > 25 :
-            enemyY_change[i] = 11
+        elif enemyY[i] <= 0 and score_value > 20 :
+            enemyY_change[i] = 13
             enemyX[i] += enemyX_change[i]
-        elif enemyY[i] >= 950 and score_value > 25 :
-            enemyY_change[i] = -11
+        elif enemyY[i] >= 950 and score_value > 20 :
+            enemyY_change[i] = -13
             enemyX[i] += enemyX_change[i]
 
         collision = isCollision(enemyX[i],enemyY[i],bullet_group)
@@ -196,8 +196,3 @@ while running :
     show_score(textX,textY)
     pygame.display.flip()
     clock.tick(120)
-
-
-
-
-

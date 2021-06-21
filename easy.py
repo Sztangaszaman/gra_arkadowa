@@ -102,7 +102,7 @@ def isCollision(enemyX,enemyY,bullets):
             # wypisz pozycje poki na ekranie, ToDo - sprawdzaj tutaj kolizje
             #print(math.sqrt((math.pow(enemyX-bullet.getX(),2)) + (math.pow(enemyY-bullet.getY(),2))), "pozycja x,y kuli nr", bullet.getBulletNumber(), bullet.getX(), bullet.getY())
             distance = math.sqrt((math.pow(enemyX-bullet.getX(),2)) + (math.pow(enemyY-bullet.getY(),2)))
-            if distance < 75:
+            if distance < 65:
                 return True
             else:
                 return False
@@ -130,8 +130,6 @@ screen_width, screen_height = 1600,1000
 screen = pygame.display.set_mode((screen_width,screen_height))
 background = pygame.image.load('jungle.jpg')
 pygame.mouse.set_visible(False)
-mixer.music.load('background_music.wav')
-mixer.music.play(-1)
 
 player = Player()
 player_group = pygame.sprite.Group()
